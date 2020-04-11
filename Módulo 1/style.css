@@ -1,0 +1,134 @@
+body{
+ background-color: #f6f6f6;
+ margin: 0px;
+ font-family: "Roboto", sans-serif;
+}
+
+.navbar{
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-title{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-menu ul{
+    display: flex;
+    list-style: none;
+}
+
+.navbar-menu li{
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+#active{
+    color: gray;
+}
+
+.navbar-menu li:hover{
+    color: gray;
+}
+
+.navbar-menu i{
+    margin-left: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.navbar-menu i:hover{
+    color: gray;
+}
+
+
+.header {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_JxyiupBazJ4ByyFbx7Dd24u5AkWL2faVJ3QG7geKCEjeuzv5);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header div{
+    background-color: white;
+    padding: 20px 40px;
+    font-size: 30px ;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: 250px;
+    margin: 30px;
+}
+
+.card-header{
+    width: 100%;
+}
+
+.card-header img{
+    width: 100%;
+}
+
+.card-body{
+    background-color: white;
+    text-align: center;
+    padding: 15px 25px;
+}
+
+.card-content h1{
+    font-size: 20px;
+    margin: 0px;
+}
+
+.card-content h2{
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 100;
+    color: gray;
+}
+
+.card-content p {
+    font-size: 12px;
+}
+
+.card-footer{
+    display:flex;
+    font-size: 12px;
+    justify-content: space-between;
+    color: gray;
+}
+
+.card-footer a{
+    text-decoration: none;
+    color:gray;
+}
+
+footer{
+    background-color: #2e2e2e;
+    color: white;
+    text-align: right;
+    padding: 30px 30px 20px;
+}
+
+footer p{
+    font-size: 14px;
+    margin: 0;
+}
