@@ -4,7 +4,7 @@
   "description": "Projeto de agrupamento e filtro dos personagens de Uma API no JavaScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Wesley Rogerio de Souza Campos",
   "license": "ISC",

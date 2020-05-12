@@ -49,6 +49,17 @@ console.log(multArray2(array));
 // Métodos de Array (Sempre recebem uma função)
 
 // MAP
+/*
+array.map( function( elem, index, array ) {
+    ...
+}, thisArg );
+
+Parâmetro	Significado
+elem	    Valor do elemento
+index	    Índice em cada iteração, da esquerda para a direita
+array	    Array original invocando o método
+thisArg	    (opcional) Objeto que será referenciado como this no callback
+ */
 let animais=['dog','cat','bird','lion'];
 let numeros=[15,12,4,3];
 novosAnimais = animais.map((animal,index)=>{ 
@@ -69,6 +80,17 @@ novosAnimais = animais.map((animal,index)=>{
 
 
 // Filter
+/**
+array.filter( function( elem, index, array ) {
+    ...
+}, thisArg );
+
+Parâmetro	Significado
+elem	    Valor do elemento
+index	    Índice em cada iteração, da esquerda para a direita
+array	    Array original invocando o método
+thisArg	    (opcional) Objeto que será referenciado como this no callback
+ */
 novosAnimais.filter((animal)=>{
     return animal.id %2==0;
 })
@@ -77,9 +99,22 @@ novosAnimais.filter((animal)=>{
 -----------------------------*/
 
 // Reduce
+/**
+array.reduce( function( prevVal, elem, index, array ) {
+    ...
+}, initialValue );
+
+Parâmetro	    Significado
+prevVal 	    Valor cumulado retornado em cada iteração
+elem	        Valor do elemento
+index	        Índice em cada iteração, da esquerda para a direita
+array	        Array original invocando o método
+initialValue	(opcional) Objeto usado como primeiro argumento na primeira iteração (mais à esquerda)
+ */
 animaisPeso.reduce((initialValue, animal) => {
     initialValue = initialValue + animal.peso
     return initialValue
 }, 0 )
 // initialValue==34
 //-----------------------------
+ 
