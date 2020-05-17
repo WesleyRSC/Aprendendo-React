@@ -30,15 +30,7 @@ import {
 
 
 class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      nome:'React',
-      personagens: [],
-      loading:false
-    }
-    console.log(`Constructor`);
-  }
+
 
   componentDidMount(){
     console.log('Console Did Mount');
