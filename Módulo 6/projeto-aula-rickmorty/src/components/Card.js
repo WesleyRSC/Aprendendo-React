@@ -27,6 +27,6 @@ export function CardTitle(props) {
 
 export function Card(props) {
     return (
-        <div className="card">{props.children}</div>
+        <div className="card" data-testid="personagem">{props.children}</div>
     );
 }

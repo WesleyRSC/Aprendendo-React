@@ -47,6 +47,7 @@ class App extends React.Component {
       .then(data=>data.results);
     await this.setState({
       todosPersonagens: response,
+      personagens:response,
       loading:false
     })
   }
@@ -58,7 +59,7 @@ class App extends React.Component {
   handleClickStatus(evento, status){
     evento.preventDefault();
 
-    let newPersonagens = this.state.personagens;
+    let newPersonagens = this.state.todosPersonagens;
 
     if (status !== "") {
       newPersonagens = filterByStatus(this.state.todosPersonagens, status);
@@ -72,7 +73,7 @@ class App extends React.Component {
   handleClickGender(evento,gender){
     evento.preventDefault();
 
-    let newPersonagens = this.state.personagens;
+    let newPersonagens = this.state.todosPersonagens;
 
     if (gender !== "") {
       newPersonagens = filterByGender(this.state.todosPersonagens, gender);
@@ -149,8 +150,8 @@ class App extends React.Component {
 
         {/* Loading */}
         {this.state.loading? <Loading/> : null }
-
         <section>
+          
           {this.state.personagens.map(personagem=>{
             return (
               <Card key={personagem.id}>
