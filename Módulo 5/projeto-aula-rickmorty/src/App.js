@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import {URL} from './constants/index'
 import Button from './components/Button';
 import {
   Card,
@@ -13,15 +14,11 @@ import Label from './components/Label';
 import FormGroup from './components/FormGroup';
 import Select from './components/Select';
 import Container from './components/Container';
-import Data from './data/data.json'; 
+//import Data from './data/data.json'; 
 import Loading from './components/Loading';
 import {
   filterByStatus,
   filterByGender,
-  filterByEpisode,
-  getEpisodeFromURL,
-  generateEpisodeList,
-  mapCharacterToEpisodes,
   generateEpisodesCharacters
 } from './uteis/filtro' 
 
@@ -31,19 +28,27 @@ import {
 
 class App extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      todosPersonagens:[],
+      personagens: [],
+      loading:false
+    }
+  }
 
-  componentDidMount(){
+  async componentDidMount(){
     console.log('Console Did Mount');
     this.setState({loading:true})
 
     // Interação com a API
-    setTimeout(() => {
-      this.setState({
-        personagens: Data.results,
-        loading:false
-      })
-    }, 2000);
-
+    const response= await fetch(URL)
+      .then(resp=>resp.json())
+      .then(data=>data.results);
+    await this.setState({
+      todosPersonagens: response,
+      loading:false
+    })
   }
 
   componentDidUpdate(){
@@ -53,29 +58,36 @@ class App extends React.Component {
   handleClickStatus(evento, status){
     evento.preventDefault();
 
-    const newPersonagens= filterByStatus(Data.results,status);
+    let newPersonagens = this.state.personagens;
+
+    if (status !== "") {
+      newPersonagens = filterByStatus(this.state.todosPersonagens, status);
+    }
+
     this.setState({
-      personagens:newPersonagens
-    })
+      personagens: newPersonagens
+    });
   }
 
   handleClickGender(evento,gender){
     evento.preventDefault();
 
-    const newPersonagens = filterByGender(Data.results, gender);
+    let newPersonagens = this.state.personagens;
+
+    if (gender !== "") {
+      newPersonagens = filterByGender(this.state.todosPersonagens, gender);
+    }
+
     this.setState({
       personagens: newPersonagens
-    })
+    });
   }
 
-  handleChange (episodio){
-    console.log(episodio);
-
-    const episodios= generateEpisodesCharacters(Data.results);
+  handleChange(episodio){
+    const episodios= generateEpisodesCharacters(this.state.todosPersonagens);
     this.setState({
       personagens:episodios[episodio]
     })
-
   }
 
   render(){
@@ -131,7 +143,7 @@ class App extends React.Component {
           <Label label="Episódio: "/>
           <Select 
             options={[1,2,3,4,5,6,7,8,9,10,11,12,13]}
-            handleChange={(value)=>this.handleChange(value)}
+            handleChange={value=>this.handleChange(value)}
           />
         </FormGroup>
 
