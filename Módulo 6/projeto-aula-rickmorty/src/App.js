@@ -22,6 +22,7 @@ import {
   generateEpisodesCharacters
 } from './uteis/filtro' 
 
+import Data from './data/data.json'
 
 // Criando o componente Button
 
@@ -47,7 +48,7 @@ class App extends React.Component {
       .then(data=>data.results);
     await this.setState({
       todosPersonagens: response,
-      personagens:response,
+      personagens: response,
       loading:false
     })
   }
@@ -152,7 +153,7 @@ class App extends React.Component {
         {this.state.loading? <Loading/> : null }
         <section>
           
-          {this.state.personagens.map(personagem=>{
+          {this.state.personagens.map((personagem)=>{
             return (
               <Card key={personagem.id}>
               <CardImg
@@ -165,7 +166,7 @@ class App extends React.Component {
                 <CardText text={`Sexo: ${personagem.gender}`}/>
               </CardBody>
             </Card>
-            )
+            );
           })}
         </section>
       </Container>

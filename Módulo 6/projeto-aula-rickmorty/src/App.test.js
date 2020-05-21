@@ -101,15 +101,16 @@ describe('App', () => {
   describe('Episodio', () => {
     it('Filtra os personagens do episodio 1', async () => {
       const rick = Data.results[0];
-      const {findAllByTestId, getByTestId} = render(<App/>);
+      const {findAllByTestId, findByTestId} = render(<App/>);
 
-      const select = await getByTestId("select");
-      fireEvent.change(select, { target: { value:1} } );
+      const select = await findByTestId("select");
+      fireEvent.change(select, { target: { value: "1"} } );
 
       const personagens = await findAllByTestId("personagem")
 
       expect(personagens.length).toBe(2);
       expect(personagens[0]).toHaveTextContent(rick.name);
+      expect(personagens[0]).toHaveTextContent(ricky.status);
     })
   })  
 })

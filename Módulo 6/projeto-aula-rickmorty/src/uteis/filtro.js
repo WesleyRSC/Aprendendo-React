@@ -30,13 +30,15 @@ function mapCharacterToEpisodes(episodes, character) {
         ...newEpisodes,
         [episode]: [...newEpisodes[episode], character]
       };
-      return;
+      return episode;
     }
 
     newEpisodes[episode] = [character];
+    return episode;
   });
   return newEpisodes;
 }
+
 
 function generateEpisodesCharacters(characters) {
   return characters.reduce((episodes, character) => {
