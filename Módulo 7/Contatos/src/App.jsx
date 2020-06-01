@@ -53,6 +53,7 @@ function App (){
       <Filters
         pesquisa = {pesquisa}
         handleChange={event=>{
+            event.preventDefault();
             setPesquisa(event.target.value);
             searchByName();
           }
