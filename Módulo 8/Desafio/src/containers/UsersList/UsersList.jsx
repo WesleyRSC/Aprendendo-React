@@ -8,7 +8,7 @@ import './UsersList.scss';
 const UersList = ({ users }) => {
   return (
     <section className="users-list" data-testid="users-list">
-      {loading ? <Loading/>:null}
+      {Loading ? <Loading/>:null}
       <User/>
     </section>
   )
